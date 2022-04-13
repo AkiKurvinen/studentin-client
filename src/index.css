@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+#root,
+#topNav,
+#bottomNav,
+body {
+  overflow: hidden;
+}
+main {
+  margin-top: 3.2em;
+  margin-bottom: 4.5em;
+  padding: 1em;
+  height: 82vh;
+  overflow: auto;
+  box-sizing: border-box;
+}
+h1 {
+  text-align: center;
+}
+.avatar-big {
+  border-radius: 50%;
+  padding: 1em;
+}
+.accountOverview {
+  text-align: center;
+}
+.accountOverview,
+.accountDetails {
+  border-bottom: thin solid #0266c3;
+
+  margin-bottom: 1em;
+}
+.accountOverview div {
+  text-align: left;
+  display: inline-block;
+  max-width: 50%;
+  vertical-align: middle;
+  padding-right: 2em;
+
+  height: 100%;
+}
+.accountOverview div p {
+  margin: 0;
+}
+.accountOverview .nameParagraph {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.accountDetails div p:first-child {
+  color: #0266c3;
+}
+.accountDetails div p {
+  margin-bottom: 0.2em;
+}
+.accountDetails div input,
+.accountDetails div textarea {
+  width: 80%;
+}
+.accountDetails div textarea:enabled,
+.accountDetails div input:enabled {
+  margin-left: 0;
+}
+.btn-outline-danger {
+  color: white;
+}
+#addNewSkill {
+  text-align: center;
+  padding-bottom: 1em;
+  margin-bottom: 2em;
+  border-bottom: thin solid #0266c3;
+}
+#topNav {
+  border-bottom: solid 2px #0266c3;
+}
+
+#bottomNav {
+  background-color: #0266c3;
+}
+#bottomNav ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2em;
+}
+#bottomNav ul li {
+  padding: 0.5em 1em;
+  vertical-align: middle;
+  text-align: center;
+}
+#bottomNav ul li svg {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0.5em;
+}
+#bottomNav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 0.5em 0em;
+  box-sizing: border-box;
+}
+#bottomNav ul li a:hover {
+  color: rgb(0, 71, 73);
+}
+.menuIcon {
+  margin-left: 0.5em;
+  margin-top: 0.2em;
+}
+.active {
+  color: #002344 !important;
+  pointer-events: none;
+}
+.avatar,
+.sinlogo {
+  height: 50px;
+  width: auto;
+
+  position: absolute;
+  top: 0;
+  padding: 5px;
+}
+.avatar {
+  border-radius: 50%;
+}
+
+#topNav {
+  width: 100%;
+
+  float: left;
+  position: fixed;
+  top: 0;
+  padding: 0.5em 0;
+  background-color: #0266c3;
+}
+
+#topNav p {
+  font-size: 1.5em;
+  color: white;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 0;
+  margin: 0 auto;
+}
+#logOutButton {
+  width: 100px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0.9em 0;
+  color: white;
+  background-color: #0266c3;
+}
+#logOutButton:hover {
+  color: rgb(0, 71, 73);
+}
+#bottomNav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.fadeOut {
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+.errormsg {
+  color: brown;
+}
+.successmsg {
+  color: forestgreen;
+}
+textarea,
+input {
+  border: none;
+  background-color: inherit;
+}
+textarea:enabled,
+input:enabled {
+  border: solid 1px black;
+  margin-left: 0.5em;
+  margin-bottom: 0.5em;
+}
+.skillList {
+  margin: 1em 0em;
+}
+.skilltag {
+  font-size: 0.8em;
+  padding: 0.1em 0.1em 0.1em 0.5em;
+  border-radius: 1em;
+  margin-right: 0.5em;
+  margin-top: 0.2em;
+  display: inline-block;
+  color: white;
+  background-color: rgb(221, 221, 221);
+  line-height: 0.8em;
+}
+.skilltag button {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  margin-left: 0.5em;
+  border: none;
+  background-color: white;
+  color: #333;
+}
+.skilltag button:hover {
+  background-color: #888;
+}
+.skill-code {
+  background-color: rgb(248, 0, 74);
+}
+.skill-framework {
+  background-color: rgb(185, 2, 2);
+}
+.skill-media {
+  background-color: rgb(151, 0, 144);
+}
+.skill-some {
+  background-color: rgb(0, 151, 138);
+}
+.svg-icon {
+  display: inline-block;
+  padding-left: 0em;
+  color: #111;
+  margin-right: 0.5em;
+}
+.crop {
+  width: 1.5em;
+  height: 1.5em;
+  overflow: hidden;
+  float: left;
+}
+.skill-adobe,
+.skill-office {
+  background-color: white;
+}
+.crop img {
+  display: inline-block;
+}
+.adobe {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0;
+}
+.office {
+  width: 40px;
+  height: 40px;
+  margin: -10px 0 0 -10px;
+}
+.skill-other {
+  color: #111;
+}
+/* projects*/
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.case p,
+.case h3 {
+  margin: 0;
+  z-index: 99;
+}
+.case h3 {
+  font-size: 1.1em;
+}
+.case {
+  position: relative;
+}
+
+.case label {
+  display: inline-block;
+  background-color: #222;
+  box-sizing: border-box;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em 0 0.7em 1.5em;
+}
+
+.projectcontent {
+  max-height: 100px;
+  overflow: hidden;
+  padding-left: 30px;
+  font-family: 'Habibi', serif;
+  border: #888 solid thin;
+  transition: max-height 0.3s ease-out;
+  position: relative;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+  min-height: 50px;
+  font-family: 'Open Sans', sans-serif;
+}
+.projectcontent::after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+
+  width: 100%;
+
+  background: -moz-linear-gradient(
+    top,
+    rgba(136, 136, 136, 0),
+    rgba(136, 136, 136, 1)
+  );
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  opacity: 0;
+  height: 0;
+}
+input[type='checkbox']:not(:checked) ~ h3 ~ .projectcontent::after {
+  opacity: 1;
+  height: 50px;
+}
+.project-checkbox {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 10;
+}
+
+.case label {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+}
+.case label:hover {
+  cursor: pointer;
+  background-color: #222;
+  color: #888;
+}
+
+.case label::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 10px;
+  border-left: 8px solid white;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  margin-top: -8px;
+}
+input[type='checkbox']:checked ~ h3 label::before {
+  border-left: 8px solid transparent;
+  border-top: 8px solid white;
+  border-right: 8px solid transparent;
+  margin-left: -4px;
+  margin-top: -4px;
+}
+
+input[type='checkbox']:checked ~ h3 ~ .projectcontent {
+  max-height: 2000px;
+  overflow: visible;
+}
+.new-line {
+  white-space: pre-line;
+}
+.roundButton {
+  border-radius: 50% !important;
+  font-size: 1.5em !important;
+  line-height: 1.1em !important;
+  margin: 0.5em !important;
+  vertical-align: middle !important;
+}
+.projectOptionsBar {
+  text-align: right;
+  padding-right: 1em !important;
+}
+.projectOptionsBar p {
+  display: inline-block;
+  margin-right: 1em;
+}
+.projectOptionsBar button {
+  margin-right: 1em;
+  margin-bottom: 1em;
+  height: 30px;
+}
+.projectcontent .descript {
+  margin: 0;
+  padding: 0;
+  color: #111 !important;
+  width: 90%;
+  border: #888 solid thin;
+}
+.members table {
+  width: auto;
+  display: inline-block;
+
+  box-sizing: border-box;
+}
+.members table td {
+  padding: 0em 1em 0em 0em;
+}
+.members table th {
+  font-weight: 300;
+  font-style: italic;
+  color: #888;
+}
+.addNewMember {
+  width: auto;
+  display: inline-block;
+
+  box-sizing: border-box;
+  vertical-align: top;
+  margin-left: 1em;
+}
+.projectOptionsBar .roundButton {
+  border: crimson thin solid;
+  width: 30px;
+  height: 30px;
+  margin: 0.5em 1em;
+  background-color: white;
+  color: crimson;
+}
+.projectOptionsBar .roundButton:hover {
+  color: rgb(255, 82, 117);
+}
+.projectOptionsBar .roundButton svg {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 3px;
+}
+.delProject button {
+  padding: 0.5em 1em;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.btn {
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+}
+#searchWrapper {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  text-align: center;
+}
+#searchComponent {
+  display: inline-block;
+  align-self: flex-end;
+  height: 100%;
+  box-sizing: border-box;
+}
+#searchComponent h3 {
+  margin-bottom: 1em;
+}
+#searchComponent input[type='radio'] {
+  transform: scale(2);
+}
+#searchComponent input[type='radio']:hover,
+#searchComponent label:hover {
+  cursor: pointer;
+}
+#searchComponent #searchField input:hover {
+  cursor: text !important;
+}
+#searchComponent label {
+  font-size: 1.2em;
+  margin: 0em 1em 0em 0.5em;
+  vertical-align: middle;
+}
+#searchComponent .searchbar {
+  display: inline-block;
+  margin: 0.5em 0 0 0;
+}
+#searchField {
+  display: inline-block;
+  width: 60vw;
+  height: 3em;
+  margin: 0 auto 1em auto;
+  padding-left: 0.5em;
+}
+#searchButton {
+  width: 3em;
+  height: 3em;
+  border-radius: 3em;
+}
+#searchButton svg {
+  margin: 0;
+}
+.searchresults {
+  width: 90%;
+  height: 50%;
+  display: inline-block;
+}
+.searchresults table {
+  width: 100%;
+}
+.searchActions {
+  height: 30%;
+}
+
+.searchResTable {
+  text-align: left;
+}
+.searchResTable tr,
+.adminUserTable tr {
+  border-bottom: #333 solid thin;
+}
+.loginWrapper {
+  display: flex;
+  height: 80%;
+  text-align: center;
+}
+.loginArea {
+  display: inline-block;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.loginArea label,
+.loginArea input {
+  display: inline-block;
+  width: 80%;
+}
+.loginArea label {
+  text-align: left;
+}
+.loginAreaContent {
+  max-width: 600px;
+  display: inline-block;
+}
+.insteadButton,
+select {
+  margin-top: 1em;
+}
+.loginArea select {
+  margin-bottom: 1em;
+}
+.adminUserTable {
+  width: 100%;
+  margin-bottom: 2em;
+}
+.members table td:nth-child(2),
+.adminUserTable td:nth-child(3) {
+  max-width: 33vw;
+  height: 3em;
+  overflow-x: auto;
+  padding-top: 0.75em;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.adminUserTable td:not(:nth-child(3n)) {
+  padding: 0;
+  box-sizing: border-box;
+}
+.authentication__header {
+  color: white;
+  text-align: center;
+}
+
+.authentication {
+  width: 90%;
+  max-width: 25rem;
+  margin: 7rem auto;
+  text-align: center;
+}
+
+.authentication form {
+  margin-bottom: 1rem;
+}
+.edit-pen-icon {
+  margin: 0;
+}
+.loginDetails h1 {
+  margin-bottom: 1em;
+}
+.loginDetails {
+  text-align: center;
+}
+.loginDetails label {
+  text-align: left;
+  width: 80%;
+}
+.loginDetails input {
+  display: inline-block;
+  width: 80%;
+}
+.loginDetails button {
+  margin-bottom: 2em;
+}
