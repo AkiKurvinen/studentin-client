@@ -19,7 +19,7 @@ function ProjectMembers(props) {
   const removeMember = async (deluid) => {
     try {
       const response = await sendRequest(
-        `http://localhost:5000/api/membership/`,
+        `${process.env.REACT_APP_BACKEND}/membership/`,
         'DELETE',
         JSON.stringify({
           pid: pid,
@@ -32,7 +32,7 @@ function ProjectMembers(props) {
       if (response !== undefined && response.success.length > 0) {
         try {
           const members = await sendRequest(
-            `http://localhost:5000/api/members/${pid}`
+            `${process.env.REACT_APP_BACKEND}/members/${pid}`
           );
 
           // last person left project
@@ -41,7 +41,7 @@ function ProjectMembers(props) {
 
             try {
               const response = await sendRequest(
-                `http://localhost:5000/api/projects/empty/`,
+                `${process.env.REACT_APP_BACKEND}/projects/empty/`,
                 'DELETE',
                 null,
                 {
@@ -95,7 +95,7 @@ function ProjectMembers(props) {
           });
 
           const response = await sendRequest(
-            `http://localhost:5000/api/memberships/`,
+            `${process.env.REACT_APP_BACKEND}/memberships/`,
             'POST',
             sendThis,
             {
@@ -120,7 +120,7 @@ function ProjectMembers(props) {
     const getUidByNameEmail = async (newMember) => {
       try {
         const response = await sendRequest(
-          `http://localhost:5000/api/find/${newMember}`
+          `${process.env.REACT_APP_BACKEND}/find/${newMember}`
         );
 
         if (response.error !== undefined) {
@@ -150,7 +150,7 @@ function ProjectMembers(props) {
     const fetchProjectMembers = async () => {
       try {
         const members = await sendRequest(
-          `http://localhost:5000/api/members/${pid}`
+          `${process.env.REACT_APP_BACKEND}/members/${pid}`
         );
         setMembersData(members);
       } catch (err) {}

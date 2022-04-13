@@ -39,7 +39,7 @@ function EditableField(props) {
       });
 
       const response = await sendRequest(
-        `http://localhost:5000/api/update/userdata/`,
+        `${process.env.REACT_APP_BACKEND}/update/userdata/`,
         'PATCH',
         sendThis,
         {
@@ -73,7 +73,7 @@ function EditableField(props) {
       });
 
       const response = await sendRequest(
-        `http://localhost:5000/api/update/project/`,
+        `${process.env.REACT_APP_BACKEND}/update/project/`,
         'PATCH',
         sendThis,
         {

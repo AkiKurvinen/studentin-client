@@ -14,7 +14,9 @@ const FetchUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const users = await sendRequest('http://localhost:5000/api/users/');
+        const users = await sendRequest(
+          `${process.env.REACT_APP_BACKEND}/users/`
+        );
         setUserData(users);
       } catch (err) {}
     };
@@ -27,7 +29,7 @@ const FetchUsers = () => {
   const deleteData = async (id) => {
     try {
       const response = await sendRequest(
-        `http://localhost:5000/api/users/`,
+        `${process.env.REACT_APP_BACKEND}/users/`,
         'DELETE',
         JSON.stringify({
           id: id,
@@ -41,7 +43,9 @@ const FetchUsers = () => {
     }
     const fetchUsers = async () => {
       try {
-        const users = await sendRequest('http://localhost:5000/api/users/');
+        const users = await sendRequest(
+          `${process.env.REACT_APP_BACKEND}/users/`
+        );
         return users;
       } catch (err) {}
     };

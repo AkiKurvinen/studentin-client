@@ -28,7 +28,7 @@ function EditSkills(props) {
   const deleteData = async (skilldataId, skilldataUid) => {
     try {
       const response = await sendRequest(
-        `http://localhost:5000/api/talents/`,
+        `${process.env.REACT_APP_BACKEND}/talents/`,
         'DELETE',
         JSON.stringify({
           skilldataId: skilldataId,
@@ -44,7 +44,7 @@ function EditSkills(props) {
     const fetchUsers = async () => {
       try {
         const skills = await sendRequest(
-          `http://localhost:5000/api/user/${uid}/skills`
+          `${process.env.REACT_APP_BACKEND}/${uid}/skills`
         );
         return skills;
       } catch (err) {}
@@ -78,7 +78,7 @@ function EditSkills(props) {
         }
 
         const response = await sendRequest(
-          `http://localhost:5000/api/skills/`,
+          `${process.env.REACT_APP_BACKEND}/skills/`,
           'POST',
           sendThis,
           {
@@ -96,7 +96,7 @@ function EditSkills(props) {
     let sid = 0;
     try {
       const request = await sendRequest(
-        `http://localhost:5000/api/skills/${skillname}`
+        `${process.env.REACT_APP_BACKEND}/skills/${skillname}`
       );
       if (request !== undefined && request.skillid > 0) {
         sid = parseInt(request.skillid);
@@ -124,7 +124,7 @@ function EditSkills(props) {
         });
 
         const response = await sendRequest(
-          `http://localhost:5000/api/talents/`,
+          `${process.env.REACT_APP_BACKEND}/talents/`,
           'POST',
           sendThis,
           {
@@ -144,7 +144,7 @@ function EditSkills(props) {
     const fetchUsers = async () => {
       try {
         const skills = await sendRequest(
-          `http://localhost:5000/api/user/${uid}/skills`
+          `${process.env.REACT_APP_BACKEND}/user/${uid}/skills`
         );
         if (skills.error) {
           setError(skills.error);

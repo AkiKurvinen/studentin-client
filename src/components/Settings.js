@@ -16,7 +16,7 @@ function Settings(props) {
     const getData = async () => {
       try {
         const response = await sendRequest(
-          `http://localhost:5000/api/users/${myId}`
+          `${process.env.REACT_APP_BACKEND}/users/${myId}`
         );
 
         setUserData(response);
@@ -46,7 +46,7 @@ function Settings(props) {
       });
 
       const response = await sendRequest(
-        `http://localhost:5000/api/users/`,
+        `${process.env.REACT_APP_BACKEND}/users/`,
         'PATCH',
         sendThis,
         {

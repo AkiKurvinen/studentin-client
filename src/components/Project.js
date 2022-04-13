@@ -19,7 +19,7 @@ function Project(props) {
     setAlertDel(false);
     try {
       const response = await sendRequest(
-        `http://localhost:5000/api/project/`,
+        `${process.env.REACT_APP_BACKEND}/project/`,
         'DELETE',
         JSON.stringify({
           pid: pid,

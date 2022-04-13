@@ -16,12 +16,12 @@ const Signup = (props) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    // console.log(data);
+    console.log(process.env.REACT_APP_BACKEND);
     setError(null);
     if (isLoginMode) {
       try {
         const response = await sendRequest(
-          'http://localhost:5000/api/login',
+          `${process.env.REACT_APP_BACKEND}/login`,
           'POST',
           JSON.stringify({
             username: data.username,
@@ -42,7 +42,7 @@ const Signup = (props) => {
     } else {
       try {
         const response = await sendRequest(
-          'http://localhost:5000/api/users',
+          `${process.env.REACT_APP_BACKEND}/users`,
           'POST',
           JSON.stringify({
             email: data.email,

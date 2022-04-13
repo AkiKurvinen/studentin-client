@@ -13,7 +13,7 @@ function MyProjects(props) {
     const fetchUsers = async () => {
       try {
         const response = await sendRequest(
-          `http://localhost:5000/api/myprojects/${uid}`
+          `${process.env.REACT_APP_BACKEND}/myprojects/${uid}`
         );
         if (response.error !== undefined) {
           setError(response.error.toString());

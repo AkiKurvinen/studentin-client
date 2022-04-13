@@ -18,11 +18,11 @@ const Search = () => {
     let url;
     console.log('findThis:' + findThis + ' ' + keyword);
     if (findThis === 'users') {
-      url = `http://localhost:5000/api/find/${keyword}`;
+      url = `${process.env.REACT_APP_BACKEND}/find/${keyword}`;
     } else if (findThis === 'skills') {
-      url = `http://localhost:5000/api/find/skills/${keyword}`;
+      url = `${process.env.REACT_APP_BACKEND}/find/skills/${keyword}`;
     } else if (findThis === 'projects') {
-      url = `http://localhost:5000/api/find/projects/${keyword}`;
+      url = `${process.env.REACT_APP_BACKEND}/find/projects/${keyword}`;
     }
     try {
       const result = await sendRequest(url);
