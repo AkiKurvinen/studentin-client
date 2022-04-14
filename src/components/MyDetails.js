@@ -50,8 +50,9 @@ function MyDetails(props) {
             <div>
               <p data-cy='usernameP'>
                 <b>{userData.users[0].username}</b>
+                {userData.users[0].title && <i> ({userData.users[0].title})</i>}
               </p>
-              {userData.users[0].title && <i>{userData.users[0].title}</i>}
+
               {userData.users[0].fname && (
                 <p className='nameParagraph'>{userData.users[0].fname}</p>
               )}

@@ -74,7 +74,13 @@ const Search = () => {
                   <tr key={user.username}>
                     <td>{user.username}</td>
                     <td>{user.email}</td>
-                    <td>{user.fname + ' ' + user.lname}</td>
+                    <td>
+                      {user.fname !== undefined
+                        ? user.fname
+                        : '' + ' ' + user.lanme !== undefined
+                        ? user.lanme
+                        : ''}
+                    </td>
                     <td>{user.school}</td>
                   </tr>
                 ))}
@@ -97,7 +103,13 @@ const Search = () => {
                     <td>{user.skill}</td>
                     <td>{user.username}</td>
                     <td>{user.email}</td>
-                    <td>{user.fname + ' ' + user.lname}</td>
+                    <td>
+                      {user.fname !== undefined
+                        ? user.fname
+                        : '' + ' ' + user.lanme !== undefined
+                        ? user.lanme
+                        : ''}
+                    </td>
                     <td>{user.school}</td>
                   </tr>
                 ))}

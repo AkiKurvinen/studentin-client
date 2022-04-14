@@ -33,6 +33,9 @@ h1 {
 
   margin-bottom: 1em;
 }
+.accountOverview div i {
+  color: #888;
+}
 .accountOverview div {
   text-align: left;
   display: inline-block;
@@ -123,7 +126,7 @@ h1 {
   width: auto;
 
   position: absolute;
-  top: 0;
+  top: 1px;
   padding: 5px;
 }
 .avatar {
@@ -489,6 +492,7 @@ input[type='checkbox']:checked ~ h3 ~ .projectcontent {
   align-self: flex-end;
   height: 100%;
   box-sizing: border-box;
+  width: 100%;
 }
 #searchComponent h3 {
   margin-bottom: 1em;
@@ -537,6 +541,9 @@ input[type='checkbox']:checked ~ h3 ~ .projectcontent {
 }
 .searchActions {
   height: 30%;
+  position: absolute;
+  bottom: 5em;
+  left: 0;
 }
 
 .searchResTable {
