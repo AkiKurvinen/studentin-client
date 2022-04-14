@@ -10,6 +10,7 @@ const FetchUsers = () => {
   const { isLoggedIn, token, userId } = authContext;
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
+  const [info, setInfo] = useState('');
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -23,13 +24,14 @@ const FetchUsers = () => {
     fetchUsers();
   }, [sendRequest]);
   function clickAlert(accountId, event) {
-    alert('Delete user with ' + accountId);
+    alert('Delete user with ID ' + accountId);
     deleteRow(accountId);
   }
   const deleteData = async (id) => {
+    console.log('Delte data');
     try {
       const response = await sendRequest(
-        `${process.env.REACT_APP_BACKEND}/users/`,
+        `${process.env.REACT_APP_BACKEND}/users/talents/`,
         'DELETE',
         JSON.stringify({
           id: id,
@@ -38,9 +40,43 @@ const FetchUsers = () => {
           'Content-Type': 'application/json',
         }
       );
-    } catch (err) {
-      setError(err.toString());
+      if (response && response.success) {
+        try {
+          const response = await sendRequest(
+            `${process.env.REACT_APP_BACKEND}/users/memberships/`,
+            'DELETE',
+            JSON.stringify({
+              id: id,
+            }),
+            {
+              'Content-Type': 'application/json',
+            }
+          );
+          if (response && response.success) {
+            try {
+              const response = await sendRequest(
+                `${process.env.REACT_APP_BACKEND}/users/`,
+                'DELETE',
+                JSON.stringify({
+                  id: id,
+                }),
+                {
+                  'Content-Type': 'application/json',
+                }
+              );
+              if (response && response.success) {
+                setInfo(response.success.toString());
+              }
+            } catch (err) {
+              setError(err.toString());
+            }
+          }
+        } catch (error) {}
+      }
+    } catch (error) {
+      setError(error.toString());
     }
+
     const fetchUsers = async () => {
       try {
         const users = await sendRequest(
@@ -58,7 +94,8 @@ const FetchUsers = () => {
   };
   return (
     <React.Fragment>
-      <h3>Users</h3>
+      <h3>Users</h3> {error && <p>{error}</p>}
+      {info && <p>{info.toString()}</p>}
       {userData && (
         <UsersList data={userData} myId={userId} onChildClick={clickAlert} />
       )}
@@ -71,39 +108,41 @@ const UsersList = (props) => {
   }
 
   return (
-    <table className='adminUserTable'>
-      <tbody>
-        <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Action</th>
-        </tr>
-        {props.data.users.map(function (account, index) {
-          return (
-            <tr key={index}>
-              <td>{account.id}</td>
-              <td>{account.username}</td>
-              <td>{account.email}</td>
-              <td>{account.title}</td>
-              <td>
-                {account.id !== props.myId && (
-                  <Button
-                    variant='danger'
-                    onClick={function (event) {
-                      props.onChildClick(account.id, event);
-                    }}
-                  >
-                    Delete
-                  </Button>
-                )}
-              </td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <>
+      <table className='adminUserTable'>
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+          {props.data.users.map(function (account, index) {
+            return (
+              <tr key={index}>
+                <td>{account.id}</td>
+                <td>{account.username}</td>
+                <td>{account.email}</td>
+                <td>{account.title}</td>
+                <td>
+                  {account.id !== props.myId && (
+                    <Button
+                      variant='danger'
+                      onClick={function (event) {
+                        props.onChildClick(account.id, event);
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  )}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
   );
 };
 export default FetchUsers;

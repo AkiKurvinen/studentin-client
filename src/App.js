@@ -3,10 +3,10 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
+  Navigate,
 } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthContext from './context/auth-context';
 import MyProfile from './components/MyProfile';
@@ -90,13 +90,19 @@ function App() {
           element={<Settings id={userId}></Settings>}
         />
         <Route exact path='/search' element={<Search id={userId}></Search>} />
+
         <Route path='*' element={<NotFound />} />
       </Routes>
     );
   } else {
     routes = (
       <Routes>
-        <Route exact path='/' element={<Signup />} />
+        {userId === 0 ? (
+          <Route path='*' element={<Signup />} />
+        ) : (
+          <Navigate to='/' />
+        )}
+
         <Route path='*' element={<NotFound />} />
       </Routes>
     );

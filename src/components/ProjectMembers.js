@@ -138,7 +138,7 @@ function ProjectMembers(props) {
 
     // Find if the array contains an object by comparing the property value
     if (membersData.members.some((person) => person.id === newMemberId)) {
-      setError('Person already added!');
+      setError('Person added!');
     } else if (newMemberId === 0 || newMemberId === undefined) {
       setError('No user found');
     } else {

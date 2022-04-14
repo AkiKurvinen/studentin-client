@@ -16,7 +16,6 @@ const Signup = (props) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(process.env.REACT_APP_BACKEND);
     setError(null);
     if (isLoginMode) {
       try {
@@ -57,7 +56,6 @@ const Signup = (props) => {
 
         auth.login(response.userId, response.token);
       } catch (err) {
-        console.log(err.toString());
         setError(err.toString());
       }
     }
