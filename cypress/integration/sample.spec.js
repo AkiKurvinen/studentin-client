@@ -2,12 +2,12 @@
 /* eslint-disable jest/valid-expect */
 /// <reference types="cypress" />
 const user = {
-  username: 'Alfa',
-  password: 'Alfa',
-  email: 'Alfa@mail.fi',
+  username: 'TestUser',
+  password: 'TestUser',
+  email: 'Test.User@mail.fi',
   title: 'admin',
-  fname: 'Adam',
-  lname: 'Andersson',
+  fname: 'Tester',
+  lname: 'Useful',
   school: 'Tuni',
 };
 describe('Create account', () => {
@@ -15,9 +15,9 @@ describe('Create account', () => {
     cy.visit('/');
     cy.get('[data-cy=insteadButton]').click();
     cy.get('h1').should('contain', 'Signup');
-    cy.get('[data-cy=usernameInput]').clear().type(user.username);
-    cy.get('[data-cy=passwordInput]').clear().type(user.password);
-    cy.get('[data-cy=repeatpasswordInput]').clear().type(user.password);
+    cy.get('[data-cy=usernameInput]').clear().type('Alfa');
+    cy.get('[data-cy=passwordInput]').clear().type('Alfa');
+    cy.get('[data-cy=repeatpasswordInput]').clear().type('Alfa');
     cy.get('[data-cy=submitButton]').click();
     cy.get('[data-cy=errorP]').should('contain', 'Error');
     cy.get('[data-cy=insteadButton]').click();
@@ -36,7 +36,6 @@ describe('Login user', () => {
 });
 describe('Edit account details', () => {
   it('should edit user details', () => {
-    cy.get('[data-cy=fname]').should('have.value', user.fname);
     // change name
     cy.get('[data-cy=penIconfname]').click();
     cy.get('[data-cy=fname]').clear().type('Aatami');

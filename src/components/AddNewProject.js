@@ -23,7 +23,7 @@ function AddNewProject(props) {
       });
 
       const response = await sendRequest(
-        `http://localhost:5000/api/memberships/`,
+        `${process.env.REACT_APP_BACKEND}/memberships/`,
         'POST',
         sendThis,
         {
@@ -49,7 +49,7 @@ function AddNewProject(props) {
       });
 
       const response = await sendRequest(
-        `http://localhost:5000/api/projects/`,
+        `${process.env.REACT_APP_BACKEND}/projects/`,
         'POST',
         sendThis,
         {
