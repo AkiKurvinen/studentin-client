@@ -1,10 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -97,13 +92,8 @@ function App() {
   } else {
     routes = (
       <Routes>
-        {userId === 0 ? (
-          <Route path='*' element={<Signup />} />
-        ) : (
-          <Navigate to='/' />
-        )}
-
         <Route path='*' element={<NotFound />} />
+        <Route exact path='/' element={<Signup />} />
       </Routes>
     );
   }
@@ -121,12 +111,14 @@ function App() {
         }}
       >
         <Router>
-          <TopNav uid={userId}></TopNav>{' '}
+          <TopNav uid={userId}></TopNav>
           <main>
             {token && (
-              <Button id='logOutButton' onClick={logout}>
-                Logout <FontAwesomeIcon icon={faSignOut} />
-              </Button>
+              <a href='/'>
+                <Button id='logOutButton' onClick={logout}>
+                  Logout <FontAwesomeIcon icon={faSignOut} />
+                </Button>
+              </a>
             )}
             {routes}
           </main>
