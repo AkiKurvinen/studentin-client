@@ -12,6 +12,7 @@ function Settings(props) {
   const [newpassword, setNewpassword] = useState('');
   const [newpasswordagain, setNewpasswordagain] = useState('');
   const [accountUpdated, setAccountUpdated] = useState(null);
+  const [delWarn, setDelWarn] = useState(false);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -36,6 +37,7 @@ function Settings(props) {
     updateUserData(details.newusername, details.newpassword);
   };
   const updateUserData = async () => {
+    setAccountUpdated(null);
     try {
       const sendThis = JSON.stringify({
         username: newusername,
@@ -80,11 +82,76 @@ function Settings(props) {
       return false;
     }
   }
+  const deleteData = async (id) => {
+    try {
+      const response = await sendRequest(
+        `${process.env.REACT_APP_BACKEND}/users/talents/`,
+        'DELETE',
+        JSON.stringify({
+          id: id,
+        }),
+        {
+          'Content-Type': 'application/json',
+        }
+      );
+      if (response && response.success) {
+        try {
+          const response = await sendRequest(
+            `${process.env.REACT_APP_BACKEND}/users/memberships/`,
+            'DELETE',
+            JSON.stringify({
+              id: id,
+            }),
+            {
+              'Content-Type': 'application/json',
+            }
+          );
+          if (response && response.success) {
+            try {
+              const response = await sendRequest(
+                `${process.env.REACT_APP_BACKEND}/users/`,
+                'DELETE',
+                JSON.stringify({
+                  id: id,
+                }),
+                {
+                  'Content-Type': 'application/json',
+                }
+              );
+              if (response && response.success) {
+                // My account deleted
+                props.removeLogin();
+              }
+            } catch (err) {
+              setError(err.toString());
+            }
+          }
+        } catch (error) {}
+      }
+    } catch (error) {
+      setError(error.toString());
+    }
+
+    const fetchUsers = async () => {
+      try {
+        const users = await sendRequest(
+          `${process.env.REACT_APP_BACKEND}/users/`
+        );
+        return users;
+      } catch (err) {}
+    };
+    const newData = await fetchUsers();
+    setUserData(newData);
+  };
   return (
     <>
-      {userData && (
+      {userData !== undefined && userData.users !== undefined && (
         <div className='loginDetails'>
-          <h1>Edit Login Details</h1> <label>New username </label>
+          <h1>Edit Account {userData.users[0].username}</h1>
+          {accountUpdated && (
+            <p className='fadeOut'>{accountUpdated.toString()}</p>
+          )}
+          <label>New username </label>
           <input
             type='text'
             placeholder='username'
@@ -120,6 +187,36 @@ function Settings(props) {
           >
             Change password
           </Button>
+          <br />
+          <div className='delAccountDiv'>
+            <label>Delete account</label>
+            <Button
+              id='delAccBtn'
+              variant='danger'
+              onClick={(e) => setDelWarn(true)}
+            >
+              Delete Account
+            </Button>
+            {delWarn && (
+              <div>
+                <p>Delete my account?</p>
+                <Button
+                  id='noDelAccBtn'
+                  variant='primary'
+                  onClick={(e) => setDelWarn(false)}
+                >
+                  No
+                </Button>
+                <Button
+                  id='yesDelAccBtn'
+                  variant='danger'
+                  onClick={(e) => deleteData(myId)}
+                >
+                  Yes
+                </Button>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </>

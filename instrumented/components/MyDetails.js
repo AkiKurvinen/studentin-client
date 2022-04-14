@@ -100,7 +100,9 @@ function MyDetails(props) {
             ></EditableField>
           </div>
           <EditSkills id={myId}></EditSkills>
-
+          <div>
+            <Button variant='danger'>Delete</Button>
+          </div>
           {userData.users[0].title === 'admin' && <FetchUsers />}
         </React.Fragment>
       )}

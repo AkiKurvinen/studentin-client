@@ -13,7 +13,7 @@ main {
   margin-top: 3.2em;
   margin-bottom: 4.5em;
   padding: 1em;
-  height: 82vh;
+  height: calc(100vh - 3.2em - 4.5em);
   overflow: auto;
   box-sizing: border-box;
 }
@@ -630,4 +630,40 @@ select {
 }
 .loginDetails button {
   margin-bottom: 2em;
+}
+.notFound {
+  margin: 0 auto;
+  text-align: center;
+}
+.notFound a {
+  margin-top: 50vh;
+  font-size: 2em;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+.delAccountDiv {
+  display: inline-block;
+  text-align: center;
+}
+.delAccountDiv div p {
+  display: inline-block;
+  vertical-align: middle;
+}
+.delAccountDiv label {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+#delAccBtn {
+  margin: 1em 1em 1em 2em;
+  display: inline-block;
+}
+.delAccountDiv div {
+  text-align: left;
+  display: inline-block;
+  margin-top: 1em;
+}
+.delAccountDiv div button,
+.delAccountDiv div p {
+  margin: 0 1em 0 0;
 }

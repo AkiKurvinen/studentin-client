@@ -1,6 +1,10 @@
 //Profile.js
 
 const NotFound = () => {
-  return <p>Route not found 404</p>;
+  return (
+    <div className='notFound'>
+      <a href='/'>Return to main page</a>
+    </div>
+  );
 };
 export default NotFound;

@@ -11,7 +11,8 @@ const FetchUsers = () => {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
   const [info, setInfo] = useState('');
-
+  const [delAccId, seDelAccId] = useState(0);
+  const [confirmDel, setConfirmDel] = useState(false);
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -24,8 +25,8 @@ const FetchUsers = () => {
     fetchUsers();
   }, [sendRequest]);
   function clickAlert(accountId, event) {
-    alert('Delete user with ID ' + accountId);
-    deleteRow(accountId);
+    seDelAccId(accountId);
+    setConfirmDel(true);
   }
   const deleteData = async (id) => {
     console.log('Delte data');
@@ -66,6 +67,7 @@ const FetchUsers = () => {
               );
               if (response && response.success) {
                 setInfo(response.success.toString());
+                setConfirmDel(false);
               }
             } catch (err) {
               setError(err.toString());
@@ -92,12 +94,23 @@ const FetchUsers = () => {
   const deleteRow = (data) => {
     deleteData(data);
   };
+  const resetDelete = (data) => {
+    setConfirmDel(false);
+  };
   return (
     <React.Fragment>
       <h3>Users</h3> {error && <p>{error}</p>}
       {info && <p>{info.toString()}</p>}
       {userData && (
-        <UsersList data={userData} myId={userId} onChildClick={clickAlert} />
+        <UsersList
+          data={userData}
+          myId={userId}
+          confirmDel={confirmDel}
+          delAccId={delAccId}
+          onChildClick={clickAlert}
+          deleteRow={deleteRow}
+          resetDelete={resetDelete}
+        />
       )}
     </React.Fragment>
   );
@@ -109,6 +122,27 @@ const UsersList = (props) => {
 
   return (
     <>
+      {props.confirmDel && (
+        <>
+          <p>Delete user with ID {props.delAccId}?</p>
+          <Button
+            variant='primary'
+            onClick={function (event) {
+              props.resetDelete();
+            }}
+          >
+            Cancel
+          </Button>
+          <Button
+            variant='danger'
+            onClick={function (event) {
+              props.deleteRow(props.delAccId, event);
+            }}
+          >
+            Delete
+          </Button>
+        </>
+      )}
       <table className='adminUserTable'>
         <tbody>
           <tr>

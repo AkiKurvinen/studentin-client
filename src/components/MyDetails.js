@@ -37,7 +37,7 @@ function MyDetails(props) {
     <div>
       {error && <p>{error}</p>}
       {accountUpdated && <p>{accountUpdated}</p>}
-      {userData && (
+      {userData !== undefined && userData.users !== undefined && (
         <React.Fragment>
           <div className='accountOverview'>
             <img
@@ -51,7 +51,7 @@ function MyDetails(props) {
               <p data-cy='usernameP'>
                 <b>{userData.users[0].username}</b>
               </p>
-
+              {userData.users[0].title && <i>{userData.users[0].title}</i>}
               {userData.users[0].fname && (
                 <p className='nameParagraph'>{userData.users[0].fname}</p>
               )}
@@ -100,7 +100,6 @@ function MyDetails(props) {
             ></EditableField>
           </div>
           <EditSkills id={myId}></EditSkills>
-
           {userData.users[0].title === 'admin' && <FetchUsers />}
         </React.Fragment>
       )}

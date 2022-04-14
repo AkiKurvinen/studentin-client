@@ -38,6 +38,7 @@ function App() {
       })
     );
   }, []);
+
   const logout = useCallback(() => {
     //prevent a render loop
     setToken(null);
@@ -70,7 +71,7 @@ function App() {
   }, [login]);
 
   let routes;
-  if (token) {
+  if (token && userId !== 0) {
     routes = (
       <Routes>
         <Route exact path='/' element={<MyProfile />} />
@@ -82,7 +83,9 @@ function App() {
         <Route
           exact
           path='/settings'
-          element={<Settings id={userId}></Settings>}
+          element={
+            <Settings id={userId} removeLogin={() => logout()}></Settings>
+          }
         />
         <Route exact path='/search' element={<Search id={userId}></Search>} />
 
