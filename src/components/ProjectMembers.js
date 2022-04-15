@@ -234,6 +234,7 @@ function ProjectMembers(props) {
             type='text'
             placeholder='username/email'
             value={newMember}
+            data-cy='add-member-field'
             onChange={(e) => setNewMember(e.target.value)}
           />
           <Button

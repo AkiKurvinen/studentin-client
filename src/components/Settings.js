@@ -153,6 +153,7 @@ function Settings(props) {
           )}
           <label>New username </label>
           <input
+            data-cy='un'
             type='text'
             placeholder='username'
             value={newusername}
@@ -169,12 +170,14 @@ function Settings(props) {
           <br />
           <label>New password </label>
           <input
+            data-cy='pw'
             type='password'
             placeholder='password'
             onChange={(e) => setNewpassword(e.target.value)}
           />
           <label>Repeat new password </label>
           <input
+            data-cy='rpw'
             type='password'
             placeholder='rewrite password'
             onChange={(e) => setNewpasswordagain(e.target.value)}
@@ -199,7 +202,7 @@ function Settings(props) {
             </Button>
             {delWarn && (
               <div>
-                <p>Delete my account?</p>
+                <p data-cy='del-acc-warn-text'>Delete my account?</p>
                 <Button
                   id='noDelAccBtn'
                   variant='primary'

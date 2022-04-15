@@ -25,7 +25,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "cross-env REACT_APP_BACKEND=http://localhost:5000/api react-scripts start",
+    "start": "cross-env REACT_APP_BACKEND=http://localhost:5000/api react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test:coverage": "cross-env NODE_ENV=test REACT_APP_BACKEND=http://localhost:5000/api NODE_OPTIONS=--experimental-vm-modules npx jest --forceExit --coverage",
     "test:cypress": "npx cypress run",
@@ -54,6 +54,7 @@
     "@cypress/instrument-cra": "^1.4.0",
     "babel-plugin-istanbul": "^6.1.1",
     "cypress": "^9.5.3",
+    "cypress-wait-until": "^1.7.2",
     "nyc": "^15.1.0"
   }
 }

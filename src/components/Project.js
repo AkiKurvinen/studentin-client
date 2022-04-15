@@ -39,7 +39,7 @@ function Project(props) {
     <React.Fragment>
       <div className='findme'>
         {pid && (
-          <div className='case'>
+          <div className='case' data-cy='project'>
             <div>
               <input
                 type='checkbox'

@@ -3,7 +3,9 @@
 const NotFound = () => {
   return (
     <div className='notFound'>
-      <a href='/'>Return to main page</a>
+      <a href='/' data-cy='return-main-a'>
+        Return to main page
+      </a>
     </div>
   );
 };

@@ -124,7 +124,9 @@ const UsersList = (props) => {
     <>
       {props.confirmDel && (
         <>
-          <p>Delete user with ID {props.delAccId}?</p>
+          <p data-cy='delete-user-warn-p'>
+            Delete user with ID {props.delAccId}?
+          </p>
           <Button
             variant='primary'
             onClick={function (event) {
@@ -134,6 +136,7 @@ const UsersList = (props) => {
             Cancel
           </Button>
           <Button
+            data-cy='confirm-delete-user'
             variant='danger'
             onClick={function (event) {
               props.deleteRow(props.delAccId, event);
