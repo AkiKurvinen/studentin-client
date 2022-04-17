@@ -12,7 +12,7 @@ const user = {
 };
 describe('Create account failing', () => {
   it('should not create new user account with same username', () => {
-    cy.visit('/');
+    cy.visit('http://studentin-client.herokuapp.com/');
     cy.get('[data-cy=insteadButton]').click();
     cy.get('h1').should('contain', 'Signup');
     cy.get('[data-cy=usernameInput]').clear().type('Alfa');
@@ -63,7 +63,7 @@ describe('Logout user 2', () => {
 });
 describe('Login user', () => {
   it('should login user', () => {
-    cy.visit('/');
+    cy.visit('http://studentin-client.herokuapp.com/');
     cy.get('h1').should('contain', 'Login');
     cy.get('[data-cy=usernameInput]').clear().type(user.username);
     cy.get('[data-cy=passwordInput]').clear().type(user.password);
@@ -188,7 +188,7 @@ describe('Edit login details', () => {
     cy.get('#logOutButton').should('contain', 'Logout').click();
     cy.get('h1').should('contain', 'Login');
 
-    cy.visit('/');
+    cy.visit('http://studentin-client.herokuapp.com/');
     cy.get('h1').should('contain', 'Login');
     cy.get('[data-cy=usernameInput]').clear().type('newusername');
     cy.get('[data-cy=passwordInput]').clear().type('newpass');

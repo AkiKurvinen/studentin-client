@@ -674,3 +674,6 @@ select {
 .delAccountDiv div p {
   margin: 0 1em 0 0;
 }
+.whatever_keyword_is_left_unused {
+  display: none;
+}
