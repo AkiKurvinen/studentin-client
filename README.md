@@ -10,14 +10,15 @@
 
 ## Screenshots
 
-<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/login.jpg" align="left" height="355" width="200" alt="Screenshot 1">
-<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/signup.jpg" align="left" height="355" width="200" alt="Screenshot 2">
-<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/myprofile.jpg" align="left" height="355" width="200" alt="Screenshot 3">
-<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/myskills.jpg" align="left" height="355" width="200" alt="Screenshot 4">
-<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/myprojects.jpg" align="left" height="355" width="200" alt="Screenshot 5">
-<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/project.jpg" align="left" height="355" width="200" alt="Screenshot 6">
-<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/search.jpg" align="left" height="355" width="200" alt="Screenshot 7">
-<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/settings.jpg" align="left" height="355" width="200" alt="Screenshot 8">
+<a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/login.jpg" align="left" height="355" width="200" alt="Screenshot 1"></a>
+<a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/signup.jpg" align="left" height="355" width="200" alt="Screenshot 2"></a>
+<a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/myprofile.jpg" align="left" height="355" width="200" alt="Screenshot 3"></a>
+<a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/myskills.jpg" align="left" height="355" width="200" alt="Screenshot 4"></a>
+<a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/myprojects.jpg" align="left" height="355" width="200" alt="Screenshot 5"></a>
+<a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/project.jpg" align="left" height="355" width="200" alt="Screenshot 6"></a>
+<a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/search.jpg" align="left" height="355" width="200" alt="Screenshot 7"></a>
+<a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/settings.jpg" align="left" height="355" width="200" alt="Screenshot 8"></a>
+
 ## App structure
 
 ### components
