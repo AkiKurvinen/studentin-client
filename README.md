@@ -19,6 +19,8 @@
 <a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/master/screenshots/search.png" align="left" height="355" width="200" alt="Screenshot 7"></a>
 <a href="url"><img src="https://github.com/AkiKurvinen/studentin-client/blob/master/screenshots/settings.png" align="left" height="355" width="200" alt="Screenshot 8"></a>
 
+<br/>
+
 ## App structure
 
 ### components
