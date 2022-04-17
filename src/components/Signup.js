@@ -67,9 +67,14 @@ const Signup = (props) => {
   };
   return (
     <>
-      <h1> {isLoginMode ? 'Login' : 'Signup'}</h1>
       <div className='loginWrapper'>
         <div className='loginArea'>
+          <img
+            className='studentin_full_logo'
+            src={'./img/studentin.svg'}
+            alt='StudentIn logo'
+          ></img>
+          <h1> {isLoginMode ? 'Login' : 'Signup'}</h1>{' '}
           <div className='loginAreaContent'>
             {error && <p data-cy='errorP'>{error}</p>}
             <form onSubmit={handleSubmit(onSubmit)}>

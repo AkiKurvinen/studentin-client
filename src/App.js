@@ -13,7 +13,7 @@ import BottomNav from './components/BottomNav';
 import MyProjects from './components/MyProjects';
 import Settings from './components/Settings.js';
 import Search from './components/Search.js';
-import Doc from './components/Doc';
+import Docs from './components/Docs';
 
 let logoutTimer;
 function App() {
@@ -75,7 +75,7 @@ function App() {
   if (token && userId !== 0) {
     routes = (
       <Routes>
-        <Route exact path='/docs' element={<Doc />} />
+        <Route exact path='/docs' element={<Docs />} />
 
         <Route exact path='/' element={<MyProfile />} />
         <Route
@@ -98,7 +98,7 @@ function App() {
   } else {
     routes = (
       <Routes>
-        <Route exact path='/docs' element={<Doc />} />
+        <Route exact path='/docs' element={<Docs />} />
         <Route path='*' element={<NotFound />} />
         <Route exact path='/' element={<Signup />} />
       </Routes>

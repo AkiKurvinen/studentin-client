@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-function Docs() {
+function DocsClient() {
   return (
     <div className='docs'>
       <h1>StudentIn Web App</h1>
 
-      <a
-        href='https://studentin-client.herokuapp.com/'
-        rel='noreferrer'
-        target='_blank'
-      >
-        Visit StudentIn at Heroku
-      </a>
+      <p>https://studentin-client.herokuapp.com/</p>
+
       <h2>App structure</h2>
       <ul>
         <b>components</b>
@@ -475,4 +470,4 @@ function Docs() {
     </div>
   );
 }
-export default Docs;
+export default DocsClient;

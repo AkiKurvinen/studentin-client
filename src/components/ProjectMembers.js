@@ -180,16 +180,18 @@ function ProjectMembers(props) {
                       {e.id !== uid && (
                         <Button
                           variant='danger'
+                          className='member_del'
                           onClick={function (event) {
                             removeMember(e.id);
                           }}
                         >
-                          Remove
+                          Kick
                         </Button>
                       )}
                       {e.id === uid && !leaveWarning && (
                         <Button
                           variant='danger'
+                          className='member_del'
                           onClick={function (event) {
                             setLeaveWarning(true);
                           }}

@@ -8,36 +8,54 @@
 | Detailed Frontend Docs | doc/index.html                      |
 | or at Heroku           | studentin-client.herokuapp.com/docs |
 
+## Screenshots
+
+<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/login.jpg" align="left" height="355" width="200" alt="Screenshot 1">
+<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/signup.jpg" align="left" height="355" width="200" alt="Screenshot 2">
+<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/myprofile.jpg" align="left" height="355" width="200" alt="Screenshot 3">
+<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/myskills.jpg" align="left" height="355" width="200" alt="Screenshot 4">
+<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/myprojects.jpg" align="left" height="355" width="200" alt="Screenshot 5">
+<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/project.jpg" align="left" height="355" width="200" alt="Screenshot 6">
+<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/search.jpg" align="left" height="355" width="200" alt="Screenshot 7">
+<img src="https://github.com/AkiKurvinen/studentin-client/blob/main/screenshots/settings.jpg" align="left" height="355" width="200" alt="Screenshot 8">
 ## App structure
 
-- components
-- AddNewProject
-- BottomNav
-- EditableField
-- EditSkills
-- FetchUsers
-- MyDetails
-- MyProfile
-- MyProjects
-- NotFound
-- Project
-- ProjectMembers
-- Search
-- Settings
-- Signup
-- SvgIcon
-- TopNav
-- http-hook
-- validators
-- layouts
-- App
-- pages
-- MyProfile
-- MyProjects
-- Signup
-- Settings
-- routes
-- /
-- /projects
-- /settings
-- /search
+### components
+
+    - AddNewProject
+    - BottomNav
+    - EditableField
+    - EditSkills
+    - FetchUsers
+    - MyDetails
+    - MyProfile
+    - MyProjects
+    - NotFound
+    - Project
+    - ProjectMembers
+    - Search
+    - Settings
+    - Signup
+    - SvgIcon
+    - TopNav
+    - http-hook
+    - validators
+
+### layouts
+
+    - App.js
+
+### pages
+
+    - MyProfile
+    - MyProjects
+    - Signup
+    - Settings
+    - Search
+
+### routes
+
+    - /
+    - /projects
+    - /settings
+    - /search
