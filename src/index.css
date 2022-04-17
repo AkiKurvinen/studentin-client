@@ -677,3 +677,18 @@ select {
 .whatever_keyword_is_left_unused {
   display: none;
 }
+.docs html {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2em;
+}
+.docs body {
+  padding-bottom: 3em;
+}
+.docs table,
+.docs tr,
+.docs td {
+  border: solid thin black;
+  border-collapse: collapse;
+  padding: 0.1em 0.5em;
+  vertical-align: top;
+}

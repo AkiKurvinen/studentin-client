@@ -7,12 +7,16 @@
         font-family: Arial, Helvetica, sans-serif;
         line-height: 1.2em;
       }
+      body {
+        padding-bottom: 3em;
+      }
       table,
       tr,
       td {
         border: solid thin black;
         border-collapse: collapse;
         padding: 0.1em 0.5em;
+        vertical-align: top;
       }
     </style>
   </head>
@@ -36,29 +40,32 @@
       <li><a href="#NotFound"> NotFound</a></li>
       <li><a href="#Project"> Project</a></li>
       <li><a href="#ProjectMembers"> ProjectMembers</a></li>
-      <li><a href="#"> Search</a></li>
-      <li><a href="#"> Settings</a></li>
-      <li><a href="#"> Signup</a></li>
-      <li><a href="#"> SvgIcon</a></li>
-      <li><a href="#"> TopNav</a></li>
-      <li><a href="#"> http-hook</a></li>
-      <li><a href="#"> validators</a></li>
+      <li><a href="#Search"> Search</a></li>
+      <li><a href="#Settings"> Settings</a></li>
+      <li><a href="#Signup"> Signup</a></li>
+      <li><a href="#SvgIcon"> SvgIcon</a></li>
+      <li><a href="#TopNav"> TopNav</a></li>
+      <li><a href="#http-hook"> http-hook</a></li>
+      <li><a href="#validators"> validators</a></li>
     </ul>
     <ul>
       <b>layouts</b>
       <li><a href="#app"> App</a></li>
-      <li><a href="#"> pages</a></li>
-      <li><a href="#"> MyProfile</a></li>
-      <li><a href="#"> MyProjects</a></li>
-      <li><a href="#"> Signup</a></li>
-      <li><a href="#"> Settings</a></li>
+    </ul>
+    <ul>
+      <b> pages</b>
+      <li>MyProfile</li>
+      <li>MyProjects</li>
+      <li>Signup</li>
+      <li>Settings</li>
+      <li>Search</li>
     </ul>
     <ul>
       <b>routes</b>
-      <li><a href="#"> /__</a></li>
-      <li><a href="#"> /projects</a></li>
-      <li><a href="#"> /settings</a></li>
-      <li><a href="#"> /search</a></li>
+      <li>/__</li>
+      <li>/projects</li>
+      <li>/settings</li>
+      <li>/search</li>
     </ul>
 
     <h2 id="app">App.js</h2>
@@ -272,20 +279,126 @@
       </tbody>
     </table>
 
-    <h2 id="Project">Project</h2>
+    <h2 id="Search">Search</h2>
     <table>
       <tbody>
         <tr>
           <td>Function</td>
-          <td>Display details and participants of single project.</td>
+          <td>
+            Search for Projects, Users and Skills. Display findings in table.
+          </td>
         </tr>
         <tr>
           <td>Location</td>
-          <td>App ( MyProjects ( Project ) )</td>
+          <td>App ( Search )</td>
         </tr>
         <tr>
           <td>Inputs</td>
-          <td>button (delete project)</td>
+          <td>input (search keyword)<br />button (activate search)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="Settings">Settings</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>Function</td>
+          <td>Edit username, password or delete account.</td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td>App ( Settings )</td>
+        </tr>
+        <tr>
+          <td>Inputs</td>
+          <td>
+            input (text, new username)<br />button (change username)<br />
+            input (password, new password)<br />
+            input (password, repeat new password)<br />
+            button (change password)<br />
+            button (delete account)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="Signup">Signup</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>Function</td>
+          <td>Display login/signup form</td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td>App ( Signup )</td>
+        </tr>
+        <tr>
+          <td>Inputs</td>
+          <td>
+            Login:<br />input (text, username)<br />
+            input (password, )<br />
+            button (login)<br />
+            button (show signup form)<br /><br />
+            Signup:<br />input (text, new username)<br />
+            input (password, new password)<br />
+            input (password, repeat new password)<br />
+            button (signup)<br />
+            button (show login form)<br />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="SvgIcon">SvgIcon</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>Function</td>
+          <td>Display software as icon in user skills list</td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td>
+            App ( MyProfile ( MyDetails ( EditSkills > SkillsList ( SvgIcon ) )
+            ) )
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="TopNav">TopNav</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>Function</td>
+          <td>
+            Display current path and Sin-logo (not logged in) or user avatar (if
+            logged in).
+          </td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td>App ( TopNav )</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="http-hook">http-hook</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>Function</td>
+          <td>Component to send http-requests.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="validators">validators</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>Function</td>
+          <td>Library of input validators.</td>
         </tr>
       </tbody>
     </table>

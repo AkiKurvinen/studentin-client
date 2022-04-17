@@ -1,0 +1,478 @@
+import React, { useState, useEffect } from 'react';
+
+function Docs() {
+  return (
+    <div className='docs'>
+      <h1>StudentIn Web App</h1>
+
+      <a
+        href='https://studentin-client.herokuapp.com/'
+        rel='noreferrer'
+        target='_blank'
+      >
+        Visit StudentIn at Heroku
+      </a>
+      <h2>App structure</h2>
+      <ul>
+        <b>components</b>
+        <li>
+          <a href='#AddNewProject'> AddNewProject</a>
+        </li>
+        <li>
+          <a href='#BottomNav'> BottomNav</a>
+        </li>
+        <li>
+          <a href='#EditableField'> EditableField</a>
+        </li>
+        <li>
+          <a href='#EditSkills'> EditSkills</a>
+        </li>
+        <li>
+          <a href='#FetchUsers'> FetchUsers</a>
+        </li>
+        <li>
+          <a href='#MyDetails'> MyDetails</a>
+        </li>
+        <li>
+          <a href='#MyProfile'> MyProfile</a>
+        </li>
+        <li>
+          <a href='#MyProjects'> MyProjects</a>
+        </li>
+        <li>
+          <a href='#NotFound'> NotFound</a>
+        </li>
+        <li>
+          <a href='#Project'> Project</a>
+        </li>
+        <li>
+          <a href='#ProjectMembers'> ProjectMembers</a>
+        </li>
+        <li>
+          <a href='#Search'> Search</a>
+        </li>
+        <li>
+          <a href='#Settings'> Settings</a>
+        </li>
+        <li>
+          <a href='#Signup'> Signup</a>
+        </li>
+        <li>
+          <a href='#SvgIcon'> SvgIcon</a>
+        </li>
+        <li>
+          <a href='#TopNav'> TopNav</a>
+        </li>
+        <li>
+          <a href='#http-hook'> http-hook</a>
+        </li>
+        <li>
+          <a href='#validators'> validators</a>
+        </li>
+      </ul>
+      <ul>
+        <b>layouts</b>
+        <li>
+          <a href='#app'> App</a>
+        </li>
+      </ul>
+      <ul>
+        <b> pages</b>
+        <li>MyProfile</li>
+        <li>MyProjects</li>
+        <li>Signup</li>
+        <li>Settings</li>
+        <li>Search</li>
+      </ul>
+      <ul>
+        <b>routes</b>
+        <li>/__</li>
+        <li>/projects</li>
+        <li>/settings</li>
+        <li>/search</li>
+      </ul>
+
+      <h2 id='app'>App.js</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Authenticated</td>
+            <td>Routes</td>
+          </tr>
+          <tr>
+            <td>No</td>
+            <td>/(Signup.js)</td>
+          </tr>
+          <tr>
+            <td>Yes</td>
+            <td>
+              /(MyProfile.js)
+              <br />
+              /projects
+              <br />
+              /settings
+              <br />
+              /search
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='AddNewProject'>AddNewProject</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>
+              Adds new project and membership of current user to database.
+            </td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( MyProjects ( AddNewProject ) )</td>
+          </tr>
+          <tr>
+            <td>Inputs</td>
+            <td>
+              input (new project name)
+              <br />
+              button (add new project)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='BottomNav'>BottomNav</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Create bottom navigation.</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( BottomNav )</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='EditableField'>EditableField</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>
+              Multipurpose component for editing and saving text-based
+              information to database.
+            </td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>
+              App ( MyProfile ( MyDetails ( EditableField ) ) )<br />
+              App ( MyProjects ( Project ( EditableField ) ) )
+            </td>
+          </tr>
+          <tr>
+            <td>Inputs</td>
+            <td>
+              input (textarea) or input (text/email)
+              <br />
+              button (Enable editing/Save changes)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='EditSkills'>EditSkills</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>
+              Display user's skills in talents-table. Add skill to user via
+              talents-table. Find if skill exists, else create new skill to
+              skills-table.
+            </td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( MyProfile ( MyDetails ( EditSkills ) ) )</td>
+          </tr>
+          <tr>
+            <td>Inputs</td>
+            <td>
+              input (new project name)
+              <br />
+              button (add new project)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='FetchUsers'>FetchUsers</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>
+              Admin tool to display all users and option to delete accounts.
+            </td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( MyProfile ( MyDetails ( FetchUsers ) ) )</td>
+          </tr>
+          <tr>
+            <td>Inputs</td>
+            <td>button (delete user account)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='MyDetails'>MyDetails</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Wrapper component for user account profile overview.</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( MyProfile ( MyDetails ) )</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id='MyProfile'>MyProfile</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Wrapper component to display user account information.</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( MyProfile )</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id='MyProjects'>MyProjects</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Display list or user's projects.</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( MyProjects )</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id='NotFound'>NotFound</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Display link to return main page.</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( NotFound )</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id='Project'>Project</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Display details and participants of single project.</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( MyProjects ( Project ) )</td>
+          </tr>
+          <tr>
+            <td>Inputs</td>
+            <td>button (delete project)</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id='ProjectMembers'>ProjectMembers</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Display details and participants of single project.</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( MyProjects ( Project ( ProjectMembers ) ) )</td>
+          </tr>
+          <tr>
+            <td>Inputs</td>
+            <td>
+              button (leave project)
+              <br />
+              button (remove project member)
+              <br />
+              input (search for user)
+              <br />
+              button (add new project member)
+              <br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='Search'>Search</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>
+              Search for Projects, Users and Skills. Display findings in table.
+            </td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( Search )</td>
+          </tr>
+          <tr>
+            <td>Inputs</td>
+            <td>
+              input (search keyword)
+              <br />
+              button (activate search)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='Settings'>Settings</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Edit username, password or delete account.</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( Settings )</td>
+          </tr>
+          <tr>
+            <td>Inputs</td>
+            <td>
+              input (text, new username)
+              <br />
+              button (change username)
+              <br />
+              input (password, new password)
+              <br />
+              input (password, repeat new password)
+              <br />
+              button (change password)
+              <br />
+              button (delete account)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='Signup'>Signup</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Display login/signup form</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( Signup )</td>
+          </tr>
+          <tr>
+            <td>Inputs</td>
+            <td>
+              Login:
+              <br />
+              input (text, username)
+              <br />
+              input (password, )<br />
+              button (login)
+              <br />
+              button (show signup form)
+              <br />
+              <br />
+              Signup:
+              <br />
+              input (text, new username)
+              <br />
+              input (password, new password)
+              <br />
+              input (password, repeat new password)
+              <br />
+              button (signup)
+              <br />
+              button (show login form)
+              <br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='SvgIcon'>SvgIcon</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Display software as icon in user skills list</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>
+              "App ( MyProfile ( MyDetails ( EditSkills - SkillsList ( SvgIcon )
+              ) ) )"
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id='TopNav'>TopNav</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>
+              Display current path and Sin-logo (not logged in) or user avatar
+              (if logged in).
+            </td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>App ( TopNav )</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id='http-hook'>http-hook</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Component to send http-requests.</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id='validators'>validators</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Function</td>
+            <td>Library of input validators.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+export default Docs;
