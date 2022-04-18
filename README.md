@@ -8,6 +8,10 @@
 | Detailed Frontend Docs | doc/index.html                      |
 | or at Heroku           | studentin-client.herokuapp.com/docs |
 
+## Installation
+$ npm install
+$ npm start
+
 ## App structure
 
 ### components
