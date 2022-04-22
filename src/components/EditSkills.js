@@ -44,7 +44,7 @@ function EditSkills(props) {
     const fetchUsers = async () => {
       try {
         const skills = await sendRequest(
-          `${process.env.REACT_APP_BACKEND}/${uid}/skills`
+          `${process.env.REACT_APP_BACKEND}/user/${uid}/skills`
         );
         return skills;
       } catch (err) {}

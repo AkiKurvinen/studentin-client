@@ -171,7 +171,6 @@ const Signup = (props) => {
                   <option value='student'>Student</option>
                   <option value='instructor'>Instructor</option>
                   <option value='client'>Client</option>
-                  <option value='admin'>Admin</option>
                 </select>
               )}
               <br />
