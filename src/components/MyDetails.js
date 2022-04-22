@@ -42,7 +42,7 @@ function MyDetails(props) {
           <div className='accountOverview'>
             <img
               className='avatar-big'
-              src={'./img/default-user.jpg'}
+              src={props.imgUrl ? props.imgUrl : './img/default-user.jpg'}
               width='150'
               height='150'
               alt={props.uid}

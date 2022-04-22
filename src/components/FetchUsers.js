@@ -99,8 +99,7 @@ const FetchUsers = () => {
   };
   return (
     <React.Fragment>
-      <h3>Users</h3> {error && <p>{error}</p>}
-      {info && <p>{info.toString()}</p>}
+      <h3 id='users-h3'>Users</h3> {error && <p>{error}</p>}
       {userData && (
         <UsersList
           data={userData}
@@ -161,7 +160,9 @@ const UsersList = (props) => {
                 <td>{account.id}</td>
                 <td>{account.username}</td>
                 <td>{account.email}</td>
-                <td>{account.title}</td>
+                <td>
+                  <i>{account.title}</i>
+                </td>
                 <td>
                   {account.id !== props.myId && (
                     <Button
@@ -170,7 +171,7 @@ const UsersList = (props) => {
                         props.onChildClick(account.id, event);
                       }}
                     >
-                      Delete
+                      <a href='#users-h3'>Delete</a>
                     </Button>
                   )}
                 </td>

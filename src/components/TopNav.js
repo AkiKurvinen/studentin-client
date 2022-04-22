@@ -21,7 +21,7 @@ function TopNav(props) {
         {props.uid !== 0 ? (
           <img
             className='avatar'
-            src={'./img/default-user.jpg'}
+            src={props.imgUrl ? props.imgUrl : './img/default-user.jpg'}
             width='40'
             height='40'
             alt={props.uid}

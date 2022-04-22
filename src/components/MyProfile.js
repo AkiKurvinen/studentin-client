@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import AuthContext from '../context/auth-context.js';
 import MyDetails from './MyDetails.js';
-const MyProfile = () => {
+const MyProfile = (props) => {
   const authContext = useContext(AuthContext);
   const { userId } = authContext;
 
   if (authContext.isLoggedIn) {
     return (
-      <React.Fragment>{userId && <MyDetails id={userId} />}</React.Fragment>
+      <React.Fragment>
+        {userId && <MyDetails id={userId} imgUrl={props.imgUrl} />}
+      </React.Fragment>
     );
   } else {
     return (

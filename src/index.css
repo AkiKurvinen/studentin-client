@@ -13,9 +13,14 @@ main {
   margin-top: 3.2em;
   margin-bottom: 4.5em;
   padding: 1em;
-  height: calc(100vh - 3.2em - 4.5em);
   overflow: auto;
   box-sizing: border-box;
+}
+.main_no_bottom_menu {
+  height: calc(100vh - 3.2em);
+}
+.main_with_bottom_menu {
+  height: calc(100vh - 3.2em - 40px);
 }
 h1 {
   text-align: center;
@@ -568,6 +573,9 @@ input[type='checkbox']:checked ~ h3 ~ .projectcontent {
 .adminUserTable tr {
   border-bottom: #333 solid thin;
 }
+.adminUserTable button {
+  margin-bottom: 0em;
+}
 .loginWrapper {
   display: flex;
   height: 80%;
@@ -592,6 +600,9 @@ input[type='checkbox']:checked ~ h3 ~ .projectcontent {
   max-width: 600px;
   display: inline-block;
 }
+.insteadButton {
+  margin: 0;
+}
 .insteadButton,
 select {
   margin-top: 1em;
@@ -604,22 +615,29 @@ select {
   width: 100%;
   margin-bottom: 2em;
 }
+.adminUserTable td:nth-child(1) {
+  width: 10px;
+  padding: 0 0.5em 0 0;
+}
 .members table td:nth-child(2),
 .adminUserTable td:nth-child(3) {
-  max-width: 28vw;
+  max-width: 25vw;
   height: 3em;
   overflow-x: auto;
   padding-top: 0.75em;
   display: inline-block;
   box-sizing: border-box;
 }
+.adminUserTable td:nth-child(2) {
+  max-width: 24vw;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 0.5em 0 0;
+}
 .members table button {
   margin: 0;
 }
-.adminUserTable td:not(:nth-child(3n)) {
-  padding: 0;
-  box-sizing: border-box;
-}
+
 .authentication__header {
   color: white;
   text-align: center;
@@ -713,8 +731,50 @@ select {
   display: inline-block;
   max-width: 60vw;
 
-  margin: 1em 0 3em 0;
+  margin: 1em 0 2em 0;
 }
 .member_del {
   width: 4.5em;
+}
+.googlebutton {
+  display: inline-block;
+  background: white;
+  color: #444;
+  border-radius: 5px;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  white-space: nowrap;
+  font-family: 'Roboto', sans-serif;
+  margin: 1em 0;
+}
+.googlebutton .icon {
+  height: 2em;
+}
+.googlebutton .buttonText {
+  padding: 0.5em 1em 0.5em 1em;
+}
+.googlebutton:hover {
+  box-shadow: 2px 2px 2px grey;
+}
+.btn-danger a:hover,
+.btn-danger a:visited,
+.btn-danger a {
+  color: white;
+  text-decoration: none;
+}
+.infotxt {
+  text-align: center;
+  color: darkturquoise;
+}
+.errortxt {
+  text-align: center;
+  color: crimson;
+}
+@media only screen and (max-width: 594px) {
+  .main_no_bottom_menu {
+    height: calc(100vh - 3.2em);
+  }
+  .main_with_bottom_menu {
+    height: calc(100vh - 3.2em - 64px);
+  }
 }

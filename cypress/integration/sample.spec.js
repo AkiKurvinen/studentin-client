@@ -63,7 +63,7 @@ describe('Logout user 2', () => {
 });
 describe('Login user', () => {
   it('should login user', () => {
-    cy.visit('http://studentin-client.herokuapp.com/');
+    cy.visit('https://studentin-client.herokuapp.com/');
     cy.get('h1').should('contain', 'Login');
     cy.get('[data-cy=usernameInput]').clear().type(user.username);
     cy.get('[data-cy=passwordInput]').clear().type(user.password);

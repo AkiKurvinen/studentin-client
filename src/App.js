@@ -14,12 +14,18 @@ import MyProjects from './components/MyProjects';
 import Settings from './components/Settings.js';
 import Search from './components/Search.js';
 import Docs from './components/Docs';
+import { useGoogleLogout } from 'react-google-login';
 
 let logoutTimer;
 function App() {
   const [token, setToken] = useState(null);
   const [tokenExpirationDate, setTokenExpirationDate] = useState();
   const [userId, setUserId] = useState(0);
+  const [img, setImg] = useState(null);
+  const [error, setError] = useState('');
+  const [info, setInfo] = useState('');
+  const clientId =
+    '145839285893-3nji7qhivmfcbhvgmh194m776hhill9n.apps.googleusercontent.com';
 
   const login = useCallback((uid, token, expirationDate, name, email, role) => {
     //prevent a render loop
@@ -40,13 +46,31 @@ function App() {
     );
   }, []);
 
+  const onLogoutSuccess = (res) => {
+    setInfo('Logged out Successfully');
+  };
+
+  const onFailure = () => {
+    setError('Google login failed');
+  };
+
+  const { signOut } = useGoogleLogout({
+    clientId,
+    onLogoutSuccess,
+    onFailure,
+  });
+
   const logout = useCallback(() => {
+    // google users
+
+    signOut();
     //prevent a render loop
     setToken(null);
     setUserId(0);
     setTokenExpirationDate(null);
     localStorage.removeItem('userData');
-  }, []);
+  }, [signOut]);
+
   useEffect(() => {
     if (token && tokenExpirationDate) {
       const remainingTime =
@@ -77,7 +101,7 @@ function App() {
       <Routes>
         <Route exact path='/docs' element={<Docs />} />
 
-        <Route exact path='/' element={<MyProfile />} />
+        <Route exact path='/' element={<MyProfile imgUrl={img} />} />
         <Route
           exact
           path='/projects'
@@ -100,7 +124,7 @@ function App() {
       <Routes>
         <Route exact path='/docs' element={<Docs />} />
         <Route path='*' element={<NotFound />} />
-        <Route exact path='/' element={<Signup />} />
+        <Route exact path='/' element={<Signup imgsetter={setImg} />} />
       </Routes>
     );
   }
@@ -118,8 +142,15 @@ function App() {
         }}
       >
         <Router>
-          <TopNav uid={userId}></TopNav>
-          <main>
+          <TopNav uid={userId} imgUrl={img}></TopNav>
+          <main
+            className={
+              userId === 0 ? 'main_no_bottom_menu' : 'main_with_bottom_menu'
+            }
+          >
+            {' '}
+            {error && <p lassName='errortxt'>{error}</p>}
+            {info && <p className='infotxt'>{info}</p>}
             {token && (
               <a href='/'>
                 <Button id='logOutButton' onClick={logout}>

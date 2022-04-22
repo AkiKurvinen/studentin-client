@@ -151,7 +151,9 @@ function EditSkills(props) {
         } else {
           setUserData(skills);
         }
-      } catch (err) {}
+      } catch (err) {
+        setError('No skills added');
+      }
     };
     fetchUsers();
   }, [sendRequest, uid, newSkillAdded]);
