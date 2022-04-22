@@ -7,7 +7,7 @@
 | Deploy Server          | studentin-client.herokuapp.com      |
 | Detailed Frontend Docs | /docs/index.html                      |
 | also at Heroku          | studentin-client.herokuapp.com/docs |
-| Video demo | https://youtu.be/u9N3uSD4AF8 |
+| Video demo | https://youtu.be/Db6j-8h80ZE |
 
 ## Installation
 ```
