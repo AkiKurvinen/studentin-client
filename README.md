@@ -6,7 +6,7 @@
 | Description            | StudentIn Web App                   |
 | Deploy Server          | studentin-client.herokuapp.com      |
 | Detailed Frontend Docs | /docs/index.html                      |
-| (Docs to be released)          | studentin-client.herokuapp.com/docs |
+| also at Heroku          | studentin-client.herokuapp.com/docs |
 
 ## Installation
 ```
