@@ -10,8 +10,6 @@
 | Video demo             | https://youtu.be/Db6j-8h80ZE                                                                                                   |
 | Summary                | StudentIn is an inclusive, cross-industry project team grouping app,<br>for students with various skill sets and skill levels. |
 
-|
-
 ## Installation
 
 ```
