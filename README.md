@@ -1,32 +1,59 @@
 # StudentIn client
 
-| Key                    | Value                               |
-| ---------------------- | ----------------------------------- |
-| Owner                  | Aki Kurvinen                        |
-| Description            | StudentIn Web App                   |
-| Deploy Server          | studentin-client.herokuapp.com      |
-| Detailed Frontend Docs | /docs/index.html                      |
-| also at Heroku          | studentin-client.herokuapp.com/docs |
-| Video demo | https://youtu.be/Db6j-8h80ZE |
+| Key                    | Value                                                                                                                          |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Owner                  | Aki Kurvinen                                                                                                                   |
+| Description            | StudentIn Web App                                                                                                              |
+| Deploy Server          | https://studentin-client.herokuapp.com                                                                                         |
+| Detailed Frontend Docs | /docs/index.html                                                                                                               |
+| also at Heroku         | https://studentin-client.herokuapp.com/docs/                                                                                   |
+| Video demo             | https://youtu.be/Db6j-8h80ZE                                                                                                   |
+| Summary                | StudentIn is an inclusive, cross-industry project team grouping app,<br>for students with various skill sets and skill levels. |
+
+|
 
 ## Installation
+
 ```
 $ npm install
 $ npm start
 ```
 
-## R1
+## Testing
+
+Command line testing with coverage
+
+```
+$ npx cypress run
+```
+
+Testing with Cypress GUI
+
+```
+$ npx cypress open
+```
+
+### Local test result
+
+![Local test result](https://github.com/AkiKurvinen/studentin-client/blob/master/screenshots/test_cypress_local.JPG)
+
+### Against heroku.com test result
+
+![Heroku test result](https://github.com/AkiKurvinen/studentin-client/blob/master/screenshots/cypress_online_heroku.JPG)
+
+## Releases
+
+### R1
 
 Functional application and necessary components
 
-## R2
+### R2
 
 Bug fixes, testing and documentation
 
-## R3
+### R3
 
 Google login feature
-
 
 ## App structure
 
@@ -37,6 +64,7 @@ Google login feature
     - EditableField
     - EditSkills
     - FetchUsers
+    - Login
     - MyDetails
     - MyProfile
     - MyProjects

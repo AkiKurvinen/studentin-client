@@ -5,15 +5,14 @@ const user = {
   username: 'TestUser',
   password: 'TestUser',
   email: 'Test.User@mail.fi',
-  title: 'normal',
+  title: 'admin',
   fname: 'Tester',
   lname: 'Useful',
   school: 'Tuni',
 };
-
 describe('Create account failing', () => {
   it('should not create new user account with same username', () => {
-    cy.visit('/');
+    cy.visit('http://studentin-client.herokuapp.com/');
     cy.get('[data-cy=insteadButton]').click();
     cy.get('h1').should('contain', 'Signup');
     cy.get('[data-cy=usernameInput]').clear().type('Alfa');
@@ -23,8 +22,8 @@ describe('Create account failing', () => {
     cy.get('[data-cy=errorP]').should('contain', 'Error');
   });
 });
-describe('Create account dummy success', () => {
-  it('should create dummy account', () => {
+describe('Create account normal success', () => {
+  it('should create normal account', () => {
     cy.get('h1').should('contain', 'Signup');
     cy.get('[data-cy=usernameInput]').clear().type('dummy');
     cy.get('[data-cy=passwordInput]').clear().type('dummy');
@@ -35,22 +34,42 @@ describe('Create account dummy success', () => {
     cy.get('[data-cy=usernameP]').should('contain', 'dummy');
   });
 });
-describe('Logout user dummy', () => {
-  it('should logout dummy user', () => {
+describe('Logout user 1', () => {
+  it('should logout user', () => {
     cy.get('#profile_link').click();
     cy.get('#logOutButton').should('contain', 'Logout').click();
     cy.get('h1').should('contain', 'Login');
   });
 });
-describe('Login admin', () => {
-  it('should login user', () => {
-    cy.visit('/');
+describe('Create account admin success', () => {
+  it('should create admin account', () => {
     cy.get('h1').should('contain', 'Login');
-    cy.get('[data-cy=usernameInput]').clear().type('Admin');
-    cy.get('[data-cy=passwordInput]').clear().type('Admin');
+    cy.get('[data-cy=insteadButton]').click();
+    cy.get('[data-cy=usernameInput]').clear().type(user.username);
+    cy.get('[data-cy=passwordInput]').clear().type(user.password);
+    cy.get('[data-cy=repeatpasswordInput]').clear().type(user.password);
+    cy.get('select').select('admin');
     cy.get('[data-cy=submitButton]').click();
     cy.get('[data-cy=topNavP]').should('contain', 'My Profile');
-    cy.get('[data-cy=usernameP]').should('contain', 'Admin');
+    cy.get('[data-cy=usernameP]').should('contain', user.username);
+  });
+});
+describe('Logout user 2', () => {
+  it('should logout user', () => {
+    cy.get('#profile_link').click();
+    cy.get('#logOutButton').should('contain', 'Logout').click();
+    cy.get('h1').should('contain', 'Login');
+  });
+});
+describe('Login user', () => {
+  it('should login user', () => {
+    cy.visit('https://studentin-client.herokuapp.com/');
+    cy.get('h1').should('contain', 'Login');
+    cy.get('[data-cy=usernameInput]').clear().type(user.username);
+    cy.get('[data-cy=passwordInput]').clear().type(user.password);
+    cy.get('[data-cy=submitButton]').click();
+    cy.get('[data-cy=topNavP]').should('contain', 'My Profile');
+    cy.get('[data-cy=usernameP]').should('contain', user.username);
   });
 });
 describe('Delete user as admin', () => {
@@ -62,47 +81,6 @@ describe('Delete user as admin', () => {
     cy.contains('td', 'dummy').should('not.exist');
   });
 });
-describe('Logout user admin', () => {
-  it('should logout admin user', () => {
-    cy.get('#profile_link').click();
-    cy.get('#logOutButton').should('contain', 'Logout').click();
-    cy.get('h1').should('contain', 'Login');
-  });
-});
-
-describe('Create account normal success', () => {
-  it('should create normal account', () => {
-    cy.get('[data-cy=insteadButton]').click();
-    cy.get('h1').should('contain', 'Signup');
-    cy.get('[data-cy=usernameInput]').clear().type(user.username);
-    cy.get('[data-cy=passwordInput]').clear().type(user.password);
-    cy.get('[data-cy=repeatpasswordInput]').clear().type(user.password);
-
-    cy.get('[data-cy=submitButton]').click();
-    cy.get('[data-cy=topNavP]').should('contain', 'My Profile');
-    cy.get('[data-cy=usernameP]').should('contain', user.username);
-  });
-});
-describe('Logout user 1', () => {
-  it('should logout user', () => {
-    cy.get('#profile_link').click();
-    cy.get('#logOutButton').should('contain', 'Logout').click();
-    cy.get('h1').should('contain', 'Login');
-  });
-});
-
-describe('Login user', () => {
-  it('should login user', () => {
-    cy.visit('/');
-    cy.get('h1').should('contain', 'Login');
-    cy.get('[data-cy=usernameInput]').clear().type(user.username);
-    cy.get('[data-cy=passwordInput]').clear().type(user.password);
-    cy.get('[data-cy=submitButton]').click();
-    cy.get('[data-cy=topNavP]').should('contain', 'My Profile');
-    cy.get('[data-cy=usernameP]').should('contain', user.username);
-  });
-});
-
 describe('Edit account details', () => {
   it('should edit user details', () => {
     // change name
@@ -120,30 +98,12 @@ describe('Edit account details', () => {
 });
 
 describe('Edit user skills', () => {
-  it('should edit user skills', () => {
+  it('should edit user details', () => {
     cy.get('[data-cy=myskillsH3]').should('contain', 'My skills');
     // add skill
     cy.get('[data-cy=skillInputField]').clear().type('PowerPoint');
     cy.get('[data-cy=addskillButton]').click();
     cy.get('[alt="PowerPoint"]');
-  });
-});
-describe('Add custom skill', () => {
-  it('should edit user skills', () => {
-    cy.get('[data-cy=myskillsH3]').should('contain', 'My skills');
-    // add existing skill
-
-    cy.get('[data-cy=skillInputField]').clear().type('Dancing');
-    cy.get('[data-cy=addskillButton]').click();
-    cy.get('[title="dancing"]');
-    // add non existing skill
-    const uuid = () => Cypress._.random(0, 1e6);
-    const id = uuid();
-    const test_skill = `skill${id}`;
-    cy.wrap(test_skill).as('testSkill');
-    cy.get('[data-cy=skillInputField]').clear().type(test_skill);
-    cy.get('[data-cy=addskillButton]').click();
-    cy.get('@testSkill');
   });
 });
 
@@ -228,6 +188,8 @@ describe('Edit login details', () => {
     cy.get('#logOutButton').should('contain', 'Logout').click();
     cy.get('h1').should('contain', 'Login');
 
+    cy.visit('http://studentin-client.herokuapp.com/');
+    cy.get('h1').should('contain', 'Login');
     cy.get('[data-cy=usernameInput]').clear().type('newusername');
     cy.get('[data-cy=passwordInput]').clear().type('newpass');
     cy.get('[data-cy=submitButton]').click();
@@ -248,12 +210,5 @@ describe('Delete my account', () => {
     cy.get('[data-cy=return-main-a]')
       .should('contain', 'Return to main page')
       .click();
-  });
-});
-describe('Check docs page', () => {
-  it('should show documentation page', () => {
-    cy.visit('/docs');
-
-    cy.get('h1').should('contain', 'StudentIn Web App');
   });
 });
