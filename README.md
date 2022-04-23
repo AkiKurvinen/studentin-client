@@ -38,6 +38,7 @@ $ npx cypress open
 ### Against heroku.com test result
 
 ![Heroku test result](https://github.com/AkiKurvinen/studentin-client/blob/master/screenshots/cypress_online_heroku.JPG)
+![Heroku release test result](https://github.com/AkiKurvinen/studentin-client/blob/master/screenshots/release_test_heroku.JPG)
 
 ## Releases
 
