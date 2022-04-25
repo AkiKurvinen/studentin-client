@@ -15,6 +15,7 @@ import Settings from './components/Settings.js';
 import Search from './components/Search.js';
 import Docs from './components/Docs';
 import { useGoogleLogout } from 'react-google-login';
+import env from 'react-dotenv';
 
 let logoutTimer;
 function App() {
@@ -24,8 +25,8 @@ function App() {
   const [img, setImg] = useState(null);
   const [error, setError] = useState('');
   const [info, setInfo] = useState('');
-  const clientId =
-    '145839285893-3nji7qhivmfcbhvgmh194m776hhill9n.apps.googleusercontent.com';
+
+  const clientId = window.env.CLIENTID;
 
   const login = useCallback((uid, token, expirationDate, name, email, role) => {
     //prevent a render loop
@@ -148,7 +149,6 @@ function App() {
               userId === 0 ? 'main_no_bottom_menu' : 'main_with_bottom_menu'
             }
           >
-            {' '}
             {error && <p lassName='errortxt'>{error}</p>}
             {info && <p className='infotxt'>{info}</p>}
             {token && (
