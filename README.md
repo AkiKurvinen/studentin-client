@@ -1,12 +1,11 @@
 # StudentIn client
 
-| Key                    | Value                                                                                                                          |
+| Heading                    | Value                                                                                                                          |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | Owner                  | Aki Kurvinen                                                                                                                   |
 | Description            | StudentIn Web App                                                                                                              |
 | Deploy Server          | https://studentin-client.herokuapp.com                                                                                         |
-| Detailed Frontend Docs | /docs/index.html                                                                                                               |
-| also at Heroku         | https://studentin-client.herokuapp.com/docs/                                                                                   |
+| Detailed Frontend Docs | /docs/index.html                                                                                                            
 | Video demo             | https://youtu.be/Db6j-8h80ZE                                                                                                   |
 | Summary                | StudentIn is an inclusive, cross-industry project team grouping app,<br>for students with various skill sets and skill levels. |
 
